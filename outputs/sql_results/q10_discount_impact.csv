@@ -1,0 +1,5 @@
+discount_band,order_lines,sales_lakh,profit_lakh,margin_pct,pct_lines_at_loss
+No Discount,3969,931.88,164.67,17.67,0.0
+1-10%,3544,800.19,75.84,9.48,4.3
+11-20%,1659,356.12,-6.54,-1.84,33.0
+Above 20%,708,127.69,-32.58,-25.51,61.7

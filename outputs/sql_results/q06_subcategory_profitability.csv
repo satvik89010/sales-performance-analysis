@@ -1,0 +1,13 @@
+category,sub_category,sales_lakh,profit_lakh,margin_pct,avg_discount_pct
+Technology,Laptops,999.96,45.13,4.51,7.6
+Furniture,Chairs,146.69,27.17,18.53,6.9
+Technology,Printers,196.89,23.33,11.85,7.1
+Office Supplies,Storage,105.2,21.16,20.11,7.3
+Technology,Accessories,72.38,20.92,28.91,7.4
+Technology,Phones,224.8,20.92,9.31,7.5
+Office Supplies,Art & Stationery,45.71,16.88,36.93,7.8
+Furniture,Furnishings,50.61,15.7,31.02,7.1
+Office Supplies,Paper,29.91,10.48,35.04,7.7
+Office Supplies,Binders,29.27,9.69,33.12,7.5
+Furniture,Bookcases,120.63,7.9,6.54,7.7
+Furniture,Tables,193.85,-17.9,-9.24,17.5

@@ -1,0 +1,5 @@
+region,sales_lakh,profit_lakh,margin_pct,avg_discount_pct,customers
+North,697.18,79.39,11.39,6.0,250
+South,636.52,74.77,11.75,5.4,234
+West,542.03,53.52,9.87,7.4,213
+East,340.16,-6.29,-1.85,17.9,119

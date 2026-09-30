@@ -1,0 +1,4 @@
+segment,customers,orders,sales_lakh,margin_pct,avg_order_value
+Corporate,241,1772,997.09,9.07,56269.0
+Consumer,427,2619,939.78,9.34,35883.0
+Home Office,148,807,279.02,8.29,34575.0

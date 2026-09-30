@@ -1,0 +1,11 @@
+customer_id,customer_name,segment,region,orders,lifetime_sales,lifetime_profit
+CUST-0421,Shreya Mehta,Corporate,South,86,3756740.0,425499.0
+CUST-0642,Yash Singh,Consumer,West,101,3195432.0,321525.0
+CUST-0468,Varun Joshi,Consumer,East,109,3170596.0,-22092.0
+CUST-0177,Karan Pillai,Corporate,East,62,2978903.0,-133386.0
+CUST-0192,Arjun Bansal,Corporate,North,55,2782492.0,311338.0
+CUST-0016,Manish Kapoor,Corporate,West,47,2670438.0,297601.0
+CUST-0558,Ananya Menon,Corporate,West,33,2154779.0,159973.0
+CUST-0225,Aarav Kapoor,Home Office,North,71,2096853.0,249943.0
+CUST-0740,Simran Kumar,Corporate,South,37,2073060.0,266530.0
+CUST-0588,Yash Das,Consumer,North,47,1990726.0,260847.0
