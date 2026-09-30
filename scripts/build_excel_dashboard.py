@@ -4,7 +4,8 @@ build_excel_dashboard.py
 Builds dashboard/Sales_Dashboard.xlsx from the clean data:
 
   * Data       - clean order lines, formatted as an Excel Table with filters
-  * Analysis   - summary tables driven by SUMIFS / COUNTIFS / AVERAGEIFS formulas
+  * Analysis   - summary tables driven by SUMIFS / AVERAGEIFS formulas, plus an
+                 INDEX-MATCH sub-category lookup (drop-down) and best/worst finder
   * Dashboard  - KPI cards + 6 charts, with Year and Region drop-down filters
 
 Every number on the Dashboard and Analysis sheets is a live formula, so changing
@@ -192,7 +193,37 @@ def main() -> None:
         tot = ana.cell(row=i, column=10, value=f"=SUM(G{i}:I{i})")
         tot.number_format, tot.border, tot.font = L, BOX, Font(name=FONT, bold=True)
 
-    for col, w in zip("ABCDEFGHIJ", [16, 15, 15, 12, 18, 15, 15, 15, 13, 13]):
+    # Sub-category lookup (INDEX-MATCH) - pick a sub-category, formulas look up its numbers,
+    # plus best / worst sub-category by profit found with INDEX-MATCH on MAX / MIN.
+    lk = max(s_last, 40) + 3
+    ana.cell(row=lk, column=1, value="Sub-category lookup (INDEX-MATCH)").font = \
+        Font(name=FONT, bold=True, color=NAVY, size=11)
+    ana.cell(row=lk, column=3, value="<- pick a sub-category in the yellow cell").font = \
+        Font(name=FONT, italic=True, color=GREY)
+    sub_names = f"$A${s_first}:$A${s_last}"
+    lookup_rows = [
+        ("Sub-category", subs[0], None),
+        ("Sales (Rs Lakh)", f"=INDEX($B${s_first}:$B${s_last},MATCH($B${lk + 1},{sub_names},0))", L),
+        ("Profit (Rs Lakh)", f"=INDEX($C${s_first}:$C${s_last},MATCH($B${lk + 1},{sub_names},0))", L),
+        ("Margin %", f"=INDEX($D${s_first}:$D${s_last},MATCH($B${lk + 1},{sub_names},0))", P),
+        ("Profit rank (1 = best)", f"=RANK(B{lk + 3},$C${s_first}:$C${s_last},0)", "0"),
+        ("Most profitable", f"=INDEX({sub_names},MATCH(MAX($C${s_first}:$C${s_last}),$C${s_first}:$C${s_last},0))", None),
+        ("Least profitable", f"=INDEX({sub_names},MATCH(MIN($C${s_first}:$C${s_last}),$C${s_first}:$C${s_last},0))", None),
+    ]
+    for i, (label, value, fmt) in enumerate(lookup_rows, start=lk + 1):
+        lc = ana.cell(row=i, column=1, value=label)
+        lc.border, lc.font = BOX, Font(name=FONT, bold=True)
+        vc = ana.cell(row=i, column=2, value=value)
+        vc.border, vc.font = BOX, Font(name=FONT)
+        if fmt:
+            vc.number_format = fmt
+    pick = ana.cell(row=lk + 1, column=2)
+    pick.fill = PatternFill("solid", fgColor="FFF2CC")
+    dv_sub = DataValidation(type="list", formula1=f"={sub_names}", allow_blank=False)
+    ana.add_data_validation(dv_sub)
+    dv_sub.add(pick.coordinate)
+
+    for col, w in zip("ABCDEFGHIJ", [22, 15, 15, 12, 18, 15, 15, 15, 13, 13]):
         ana.column_dimensions[col].width = w
 
     # ------------------------------------------------------------- Dashboard
