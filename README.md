@@ -3,15 +3,15 @@
 ![Excel](https://img.shields.io/badge/Excel-Dashboard-217346?logo=microsoftexcel&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-SQLite-003B57?logo=sqlite&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-pandas%20%7C%20matplotlib-3776AB?logo=python&logoColor=white)
-![Tableau](https://img.shields.io/badge/Tableau-Dashboard-E97627?logo=tableau&logoColor=white)
+![Tableau](https://img.shields.io/badge/Tableau-Dashboard%20spec-E97627?logo=tableau&logoColor=white)
 
 An end-to-end sales analytics project: **raw data → cleaning (Python & SQL) → 30 SQL business queries →
-exploratory analysis in Python → interactive Excel dashboard → Tableau dashboard → business recommendations.**
+exploratory analysis in Python → interactive Excel dashboard → business recommendations.**
 
 > **Headline finding:** revenue grew 28% from 2022 to 2025, but heavy discounting (>10%) in the **East region**
 > and on **Tables** is wiping out profit. Capping discounts at 20% would add **≈ ₹23 Lakh (+11.5%) profit**.
 
-🔗 **Live Tableau dashboard:** _add your Tableau Public link here after publishing (see [`dashboard/TABLEAU_DASHBOARD_GUIDE.md`](dashboard/TABLEAU_DASHBOARD_GUIDE.md))_
+📊 **Dashboard:** interactive Excel workbook — [`dashboard/Sales_Dashboard.xlsx`](dashboard/Sales_Dashboard.xlsx) (download and open in Excel; pick a Year / Region in the yellow cells). A Tableau version is being built from the design spec in [`dashboard/TABLEAU_DASHBOARD_GUIDE.md`](dashboard/TABLEAU_DASHBOARD_GUIDE.md).
 
 ![Excel Dashboard](images/00_excel_dashboard.png)
 
@@ -65,9 +65,9 @@ Region, Product ID, Category, Sub-Category, Product Name, Quantity, Unit Price, 
 | **Python** (pandas, NumPy) | Data cleaning, feature engineering, validation |
 | **Python** (matplotlib, seaborn) | Exploratory analysis & 8 charts |
 | **SQL** (SQLite) | Data-quality profiling, SQL cleaning pipeline, 22 business queries, window functions, CTEs |
-| **Excel** | Interactive dashboard — SUMIFS / AVERAGEIFS formulas, drop-down filters, KPI cards, 6 charts |
-| **Tableau** | Interactive dashboard with map, parameters and filters |
-| **Power BI (DAX)** | Optional version — time-intelligence and what-if measures |
+| **Excel** | Interactive dashboard — SUMIFS / AVERAGEIFS KPI formulas, INDEX-MATCH lookup, drop-down filters, KPI cards, 6 charts |
+| **Tableau** | Dashboard design spec — map, parameters and filters (build in progress) |
+| **Power BI (DAX)** | Measure definitions — time-intelligence and what-if measures |
 
 ## 🔄 Project Workflow
 ```
@@ -200,8 +200,8 @@ Customers **816** · Avg order value **₹42,630**
 ## 📈 Dashboards
 | Dashboard | File | Highlights |
 |-----------|------|-----------|
-| **Excel** | [`dashboard/Sales_Dashboard.xlsx`](dashboard/Sales_Dashboard.xlsx) | Year & Region drop-downs, 5 KPI cards, 6 charts, all driven by live `SUMIFS` formulas |
-| **Tableau** | [Build guide](dashboard/TABLEAU_DASHBOARD_GUIDE.md) | India map, metric-switch parameter, dashboard-wide filters |
+| **Excel** | [`dashboard/Sales_Dashboard.xlsx`](dashboard/Sales_Dashboard.xlsx) | Year & Region drop-downs, 5 KPI cards, 6 charts, all driven by live `SUMIFS` formulas; `INDEX-MATCH` sub-category lookup on the Analysis sheet |
+| **Tableau** | [Design spec](dashboard/TABLEAU_DASHBOARD_GUIDE.md) (build in progress) | India map, metric-switch parameter, dashboard-wide filters |
 | **Power BI** | [DAX measures](dashboard/POWER_BI_DAX_MEASURES.md) | Date table, YoY / YTD time intelligence, what-if measure |
 
 > Download the Excel file and change the yellow **Year** / **Region** cells — every KPI and chart updates.
